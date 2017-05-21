@@ -1,0 +1,19 @@
+{% extends 'linzhipeng/base.html' %}
+
+{% block content %}
+    <p>Topic:{{ topic }}</p>
+
+    <p>Entries:</p>
+    <ul>
+        {% for entry in entries  %}
+            <li>
+                <p>{{ entry.text|linebreaks }}</p>
+                <p>{{ entry.date_added }}</p>
+                <p>
+                    <a href="{% url 'linzhipeng:edit_entry' entry.id %}">edit entry</a>
+                </p>
+            </li>
+        {% endfor %}
+    <a href="{% url 'linzhipeng:new_entry' topic.id %}"> add a Entry</a>
+    </ul>
+{% endblock content %}

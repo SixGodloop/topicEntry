@@ -1,0 +1,14 @@
+<p>
+    base base base.....
+</p>
+<p>
+    <a href="{% url 'linzhipeng:index' %}">index</a>
+    <a href="{% url 'linzhipeng:topics' %}">Topics</a>
+    {% if user.is_authenicated %}
+        Hello {{ user.username }}
+    {% else %}
+        <a href="{% url 'users:login' %}">Log in</a>
+    {% endif %}
+</p>
+
+{% block content %}{% endblock content %}

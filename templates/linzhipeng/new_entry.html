@@ -1,0 +1,13 @@
+{% extends 'linzhipeng/base.html' %}
+{% block content %}
+
+    <a href="{% url 'linzhipeng:topic' topic.id %}">{{ topic }}</a>
+    <p>Add a new entry:</p>
+
+    <form action="{% url 'linzhipeng:new_entry' topic.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button name="submit">add Entry</button>
+    </form>
+
+{% endblock content %}
